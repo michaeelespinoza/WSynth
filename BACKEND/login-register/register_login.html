@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Registration | WSynth</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@100;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <header class="header">
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <form action="#" class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="bx bx-search"></i></button>
+        </form>
+    </header>
+
+    <div class="background"></div>
+
+    <div class="container">
+        <div class="content">
+            <h2 class="logo"><img src="WSynth_logo.png" alt="WSynth LOGO"> WSynth</h2>
+
+            <div class="text-sci">
+            
+                <h2 id="typewriter-container"></h2>
+
+                <p class="fade" id="text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat mollitia tenetur eos 
+                    veniam impedit commodi ipsum repudiandae amet.
+                </p>
+            
+                <div class="fade" id="social-icons">
+                    <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+                    <a href="#"><i class="bx bxl-github"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="logreg-box">
+            <div class="form-box login">
+                <form action="#" id="login-form">
+                    <h2>Sign In</h2>
+                    
+                    <div class="input-box">
+                        <span class="icon"><i class="bx bxs-envelope" ></i></span>
+                        <input type="email" required>
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><i class="bx bxs-lock-alt"></i></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn">Sign In</button>
+
+                    <div class="login-register">
+                        <p>Don't have an account? <a href="#" class="register-link">Sign up</a></p>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="form-box register">
+                <div class="scrollable-form">
+                    <form action="" id="register-form" method="post">
+                        <h2>Sign Up</h2>
+
+                        <div class="input-box">
+                            <span class="icon"><i class="bx bxs-user-pin"></i></span>
+                            <input id="username" type="text" required>
+                            <label>username</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class="bx bxs-user"></i></span>
+                            <input id="nombre" type="text" required>
+                            <label>nombre</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class="bx bxs-user"></i></span>
+                            <input id="apellido" type="text" required>
+                            <label>apellido</label>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><i class="bx bxs-user"></i></span>
+                            <input id="edad" type="number" required>
+                            <label>edad</label>
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="icon"><i class="bx bxs-envelope" ></i></span>
+                            <input id="correo" type="email" required>
+                            <label>correo</label>
+                        </div>
+                        
+                        <div class="input-box">
+                            <span class="icon"><i class="bx bxs-key"></i></span>
+                            <input id="passwd" type="password" required>
+                            <label>passwd</label>
+                        </div>
+
+                    
+                        <button type="submit" class="btn" id="btnSubmit">Sign Up</button>
+
+                        <div class="login-register">
+                            <p>Already have an account? <a href="#" class="login-link">Sign In</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="login_register.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</body>    
+
+</html>
