@@ -92,3 +92,48 @@ formElement.addEventListener(("submit"), async (event) => {
 
 });
 
+const loginFormElement = document.getElementById("login-form");
+loginFormElement.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  loginUser();
+});
+
+async function loginUser() {
+  const correo = document.querySelector("#login-form input[type='email']").value;
+  const passwd = document.querySelector("#login-form input[type='password']").value;
+
+  const loginData = {
+    correo,
+    passwd,
+  };
+
+  const loginDataJson = JSON.stringify(loginData);
+
+  try {
+    const response = await fetch("http://localhost:3001/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api_key": "leifer-01",
+      },
+      body: loginDataJson,
+    });
+
+    const result = await response.json();
+
+    if (response.status === 200) {
+      // Guarda el token de acceso en el almacenamiento local y redirige a la página principal
+      localStorage.setItem("access_token", result.access_token);
+      window.location.href = "http://192.168.1.90:3000"; // URL de la página principal de la aplicación
+    } else {
+      // Muestra un mensaje de error si el inicio de sesión no es exitoso
+      alert("Error al iniciar sesión. Por favor, verifica tus credenciales.");
+    }
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error); 
+  }
+}
+
+
+
+

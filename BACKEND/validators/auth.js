@@ -27,14 +27,11 @@ const validatorRegister = [
 ];
 
 const validatorLogin = [
-    check("password")
-    .exists()
-    .notEmpty()
-    .isLength({min:3, max:15}),
+    check("passwd")
+    .exists(),
     check("correo")
-    .exists()
-    .notEmpty()
-    .isEmail(),
+    .isEmail()
+    .normalizeEmail(),
     (req, res, next) => {
         return validateResults(req, res, next)
     }

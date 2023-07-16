@@ -38,7 +38,7 @@ app.use('/documentation',
  swaggerUI.setup(openApiConfigration))
 
 /**
- * Aqui invocamos a las rutas! 😎
+ * Aqui invocamos a las rutas
  */
 app.use("/api", require("./routes"));
 

@@ -3,6 +3,7 @@ const { encrypt, compare } = require("../utils/handlePassword");
 const { tokenSign } = require("../utils/handleJwt");
 const { handleHttpError } = require("../utils/handleError");
 const { usersModel } = require("../models");
+const bcryptjs = require("bcryptjs");
 
 /**
  * Este controlador es el encargado de registrar un usuario
@@ -40,36 +41,41 @@ const registerCtrl = async (req, res) => {
  * @param {*} res 
  */
 const loginCtrl = async (req, res) => {
-  try {
+  try {  
     req = matchedData(req);
-    const user = await usersModel.findOne({ email: req.email })
+    const user = await usersModel.findOne({ where: { correo: req.correo } });
+    const passwd = req.passwd;
 
     if (!user) {
       handleHttpError(res, "USER_NOT_EXISTS", 404);
       return
     }
 
-    const hashPassword = user.get('password');
+    const hashPassword = user.get('passwd');
 
-    const check = await compare(req.password, hashPassword)
+    const check = await compare(passwd, hashPassword);
+    //const check = await bcrypt.compare(passwd, hashPassword);
 
     if (!check) {
       handleHttpError(res, "PASSWORD_INVALID", 401);
       return
     }
 
-    user.set('password', undefined, { strict: false })
+    user.set('passwd', undefined, { strict: false })
     const data = {
-      token: await tokenSign(user),
+      token: await tokenSign(user), 
       user
     }
 
+    console.log(data)
+
     res.send({ data })
+    
 
 
   } catch (e) {
-    console.log(e)
-    handleHttpError(res, "ERROR_LOGIN_USER")
+      console.log(e)
+      handleHttpError(res, "ERROR_LOGIN_USER")
   }
 }
 
